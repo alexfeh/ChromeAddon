@@ -19,5 +19,8 @@
     }
   ],
   "devtools_page": "devtools.html",
-  "omnibox": { "keyword" : "yeah" }
+  "omnibox": { "keyword" : "yeah" },
+  "permissions":[
+    "tabs"
+  ]
 }
