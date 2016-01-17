@@ -36,8 +36,9 @@ function openLinks(){
 
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         var activeTab = tabs[0];
-        chrome.extension.getBackgroundPage().console.log("send Message");
+        chrome.extension.getBackgroundPage().console.log("send Message for loading");
         chrome.tabs.sendMessage(activeTab.id, {"message": "open_links"});
+
     });
 }
 
@@ -46,13 +47,29 @@ function clickLinks(){
 
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         var activeTab = tabs[0];
-        chrome.extension.getBackgroundPage().console.log("send Message");
+        chrome.extension.getBackgroundPage().console.log("send Message for clicking links");
         chrome.tabs.sendMessage(activeTab.id, {"message": "click_links"});
     });
 }
 
+function closeTabs(){
+    chrome.extension.getBackgroundPage().console.log("Trying to close tabs");
 
-// This block is new!
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        var allTabs = tabs;
+
+        chrome.extension.getBackgroundPage().console.log("send Message");
+
+        var count = tabs.length;
+        chrome.extension.getBackgroundPage().console.log("count: " + count);
+
+        for(i = 0; i < count; i++) {
+            //chrome.tabs.remove(allTabs[i].id);
+            chrome.extension.getBackgroundPage().console.log(allTabs[i].toString() + " id: " + allTabs[i].id);
+        }
+    });
+}
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if( request.message === "open_new_tab" ) {
