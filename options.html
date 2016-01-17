@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Settings</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<p> OPTIONS </p>
+<!--<p> OPTIONS </p>
 
-<p> which links with which WORDS should be ignored? (Sex, porn, etc. )</p>
+<p> which links with which WORDS should be ignored? (Sex, porn, etc. )</p>-->
+
+<div class="dialog">
+    <div class="title">Automatic Clicker Options</div>
+    <!--<p>duration</p>-->
+    <select name="type">
+        <option value="a">every 30 sec</option>
+        <option value="a">every 1 min</option>
+        <option value="a">every 2 min</option>
+        <option value="a">every 5 min</option>
+        <option value="a">every 10 min</option>
+        <option value="a">every 30 min</option>
+    </select>
+    <!--<input name="start_dtm" type="datetime-local"/>
+    <input name="duration" type="time"/>
+    <input name="name" type="text" placeholder="Name"/>
+    <input name="location" type="text" placeholder="Location"/>-->
+    <textarea name="description" placeholder="Blacklist" cols="30" rows="10" wrap="soft"></textarea>
+    <input type="submit" value="Ok"/>
+</div>
 
 </body>
 </html>

@@ -7,19 +7,7 @@
 <html>
 <head>
     <title>Getting Started Extension's Popup</title>
-    <style>
-        body {
-            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-            font-size: 100%;
-        }
-        #status {
-            /* avoid an excessively wide status text */
-            white-space: pre;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            max-width: 400px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
@@ -31,15 +19,14 @@
 </head>
 <body>
 
-<p> HELLO </p>
+    <div class="title">Automatic Clicker</div>
 
-<button id="mybuttonOpenLinks" >Load  links</button>
-<button id="mybuttonClickLinks" >Click links</button>
-<button id="mybuttonOptions" >Settings</button>
-<button id="mybuttonCloseTabs" >Close Tabs</button>
+    <input id="mybuttonOpenLinks" type="submit" value="Open Links"/>
+    <input id="mybuttonClickLinks" type="submit" value="Click Links"/>
+    <input id="mybuttonOptions" type="submit" value="Settings"/>
+    <input id="mybuttonCloseTabs" type="submit" value="Close Tabs"/>
 
 <div id="status"></div>
 <img id="image-result" hidden>
 </body>
 </html>
-
