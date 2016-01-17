@@ -3,7 +3,7 @@ function renderStatus(statusText) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('mybutton1').addEventListener('click', function() {
+    document.getElementById('mybuttonOpenLinks').addEventListener('click', function() {
         renderStatus('clicked!!');
         //chrome.extension.getBackgroundPage().console.log("hello");
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chrome.extension.getBackgroundPage().openLinks();
     });
 
-    document.getElementById('mybutton2').addEventListener('click', function() {
+    document.getElementById('mybuttonClickLinks').addEventListener('click', function() {
         renderStatus('clicked!!');
         //chrome.extension.getBackgroundPage().console.log("hello");
 
@@ -19,11 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
         chrome.extension.getBackgroundPage().clickLinks();
     });
 
-    document.getElementById('mybutton3').addEventListener('click', function() {
+    document.getElementById('mybuttonOptions').addEventListener('click', function() {
         renderStatus('clicked!!');
         chrome.tabs.create({ url: "options.html" });
     });
 
+    document.getElementById('mybuttonCloseTabs').addEventListener('click', function() {
+        renderStatus('clicked!!');
+        //chrome.extension.getBackgroundPage().console.log("hello");
+
+        //myStuff();
+        chrome.extension.getBackgroundPage().closeTabs();
+    });
 
 });
 
