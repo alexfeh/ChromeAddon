@@ -35,9 +35,20 @@
 
              console.log("click ELEMENT");
 
-             var link = $("a[href^='http']").eq(0).attr("href");
+             var links = $("a[href^='http']");//.eq(0)
+             var count = links.length;
+             console.log("count: " + count);
 
-             link.dispatchEvent(new MouseEvent("click"));
+             /*$("a").click(function(event) {
+                 event.preventDefault();
+             });*/
+
+             for(i = 0; i < count; i++){
+                 console.log("i: " + i + "link: " + links[i]);
+                 links[i].setAttribute("target", "_blank");
+                 links[i].click();
+             }
+             console.log("Element clicked");
          }
      }
  );
