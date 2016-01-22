@@ -25,7 +25,7 @@
              var firstHref = [];
              for (i = 0; i < count; i++) {
                  firstHref.push($("a[href^='http']").eq(i).attr("href"));
-                 history.pushState({foo:"bar"},"page 2",$("a[href^='http']").eq(i).attr("href") );
+                 //history.pushState({foo:"bar"},"page 2",$("a[href^='http']").eq(i).attr("href") );
              }
              //console.log(firstHref);
 
