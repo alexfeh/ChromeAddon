@@ -37,6 +37,17 @@ body {
     line-height:2em;
 }
 
+label{
+    color: #fff;
+    border: 0;
+    outline: 0;
+    resize: none;
+    margin: 0;
+    margin-top: 1em;
+    padding: .5em;
+    width:100%;
+}
+
 textarea,input[type=text],input[type=datetime-local],input[type=time],select
 {
     color: #fff;
