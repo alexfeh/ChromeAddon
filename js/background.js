@@ -85,3 +85,52 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
+
+var myVar;
+
+function runDuration(){
+    chrome.extension.getBackgroundPage().console.log("Started duration");
+
+    chrome.storage.sync.get(function(items) {
+        durationActivated = items.activateClicking;
+
+        if(durationActivated) {
+            myVar = setInterval(function () {
+                // method to be executed;
+                openRandomLinkFromCurrentSite();
+            }, 5000);
+        }
+    });
+}
+
+var count = 0;
+function openRandomLinkFromCurrentSite(){
+
+    chrome.storage.sync.get(function(items) {
+        durationActivated = items.activateClicking;
+
+        if(!durationActivated) {
+            clearInterval(myVar);
+        }else{
+            chrome.extension.getBackgroundPage().console.log("Try to open on random Link on this page");
+            chrome.extension.getBackgroundPage().console.log(count++);
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                var activeTab = tabs[0];
+                chrome.extension.getBackgroundPage().console.log("send Message for loading");
+                chrome.tabs.sendMessage(activeTab.id, {"message": "open_one_random_link"});
+
+            });
+        }
+    });
+}
+
+function openRandomLinkFromRandomSite(){
+    chrome.extension.getBackgroundPage().console.log("Try to open all links from this page");
+
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        var activeTab = tabs[0];
+        chrome.extension.getBackgroundPage().console.log("send Message for loading");
+        chrome.tabs.sendMessage(activeTab.id, {"message": "open_one_random_link_from_random_site"});
+
+    });
+}

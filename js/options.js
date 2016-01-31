@@ -5,9 +5,6 @@ function save_options() {
     var randomWebText = document.getElementById('randomSites').value;
     var blacklistWebText = document.getElementById('blacklist').value;
 
-    console.log(randomWebText);
-    console.log(blacklistWebText);
-
     chrome.storage.sync.set({
         duration: durationPicker,
         activateClicking: activateCheck,

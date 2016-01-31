@@ -51,5 +51,24 @@
              }
              console.log("Element clicked");
          }
+
+         if( request.message === "open_one_random_link" ) {
+
+             console.log("getting random Link");
+
+             var count = $("a[href^='http']").length;
+
+             var firstHref = [];
+             for (i = 0; i < count; i++) {
+                 firstHref.push($("a[href^='http']").eq(i).attr("href"));
+                 //history.pushState({foo:"bar"},"page 2",$("a[href^='http']").eq(i).attr("href") );
+             }
+             //console.log(firstHref);
+
+             var randomLink = firstHref[Math.floor(Math.random() * count) +1];
+             console.log("open random link: " + randomLink);
+
+             chrome.runtime.sendMessage({"message": "open_new_tab", "url": randomLink});
+         }
      }
  );
