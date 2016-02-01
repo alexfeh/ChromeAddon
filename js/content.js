@@ -36,19 +36,31 @@
 
              console.log("click ELEMENT");
 
-             var links = $("a[href^='http']");//.eq(0)
-             var count = links.length;
-             console.log("count: " + count);
+             var elements = document.getElementsByTagName("a");
 
+             var firstHref = [];
+             for(i = 0; i < elements.length; i++){
+                 console.log("i: " + i + "elements: " + elements[i].toString());
+                 firstHref.push(elements[i].toString());
+                 //links[i].setAttribute("target", "_blank");
+                 //elements[i].click();
+             }
+
+             chrome.runtime.sendMessage({"message": "open_new_tab", "url": firstHref});
+             /*
+              var links = $("a[href^='']");//.eq(0)
+              var count = links.length;
+              console.log("count: " + count);
+             */
              /*$("a").click(function(event) {
                  event.preventDefault();
              });*/
-
+            /*
              for(i = 0; i < count; i++){
                  console.log("i: " + i + "link: " + links[i]);
-                 links[i].setAttribute("target", "_blank");
+                 //links[i].setAttribute("target", "_blank");
                  links[i].click();
-             }
+             }*/
              console.log("Element clicked");
          }
 
