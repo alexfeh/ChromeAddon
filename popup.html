@@ -1,31 +1,20 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
 <head>
     <title>Getting Started Extension's Popup</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
     <script src="js/popup.js"></script>
 </head>
 <body>
 
     <div class="title">Automatic Clicker</div>
 
-    <input id="mybuttonOpenLinks" type="submit" value="Open Links"/>
+    <!--<input id="mybuttonOpenLinks" type="submit" value="Open Links"/>-->
     <input id="mybuttonClickLinks" type="submit" value="Click Links"/>
     <input id="mybuttonOptions" type="submit" value="Settings"/>
-    <input id="mybuttonCloseTabs" type="submit" value="Close Tabs"/>
+    <!---<input id="mybuttonCloseTabs" type="submit" value="Close Tabs"/>-->
     <input id="mybuttonStartDuration" type="submit" value="Start duration"/>
+    <input id="mybuttonTopDuration" type="submit" value="Stop duration"/>
 
 <div id="status"></div>
 <img id="image-result" hidden>
